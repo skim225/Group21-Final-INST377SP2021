@@ -4,7 +4,7 @@ import sequelize from 'sequelize';
 
 import db from '../database/initializeDB.js';
 
-import md_census_data_tax_credit_company from '../server/controller/md_census_data_tax_credit_company.js'
+import mdCensusDataTaxCreditCompany from '../server/controller/md_census_data_tax_credit_company.js'
 import small_dev_metro_areas from '../server/controller/small_dev_metro_areas.js';
 
 const router = express.Router();
@@ -31,7 +31,7 @@ router.route('/zipcode')
 router.route('/mdcensusdatataxcreditcompany')
   .get(async (req, res) => {
     try {
-      const census = await db.md_census_data_tax_credit_company.findall();
+      const census = await db.mdCensusDataTaxCreditCompany.findall();
       const reply = census.length > 0 ? {data: census } : {message: 'no results found' };
       res.json(reply);
     } catch (err) {
