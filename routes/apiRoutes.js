@@ -4,7 +4,7 @@ import sequelize from 'sequelize';
 
 import db from '../database/initializeDB.js';
 
-import mdCensusDataTaxCreditCompany from '../server/controller/mdCensusDataTaxCreditCompany.js'
+import mdCensusData from '../server/controller/mdCensusData.js'
 import small_dev_metro_areas from '../server/controller/small_dev_metro_areas.js';
 
 const router = express.Router();
@@ -28,11 +28,11 @@ router.route('/zipcode')
     }
   });
 
-  router.route('/mdCensusDataTaxCreditCompany')
+  router.route('/mdCensusData')
   .get(async (req, res) => {
     try{
       console.log(req.body);
-      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+      const result = await db.sequelizeDB.query(mdCensusData, {
         replacements: { },
         type: sequelize.QueryTypes.SELECT
       });
@@ -47,7 +47,7 @@ router.route('/zipcode')
   .put(async (req, res) => {
     try{
       console.log(req.body);
-      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+      const result = await db.sequelizeDB.query(mdCensusData, {
         replacements: { },
         type: sequelize.QueryTypes.SELECT
       });
@@ -62,7 +62,7 @@ router.route('/zipcode')
   .post(async (req, res) => {
     try{
       console.log(req.body);
-      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+      const result = await db.sequelizeDB.query(mdCensusData, {
         replacements: { },
         type: sequelize.QueryTypes.SELECT
       });
@@ -77,7 +77,7 @@ router.route('/zipcode')
   .delete(async (req, res) => {
     try{
       console.log(req.body);
-      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+      const result = await db.sequelizeDB.query(mdCensusData, {
         replacements: { },
         type: sequelize.QueryTypes.SELECT
       });
