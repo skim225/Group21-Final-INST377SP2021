@@ -28,39 +28,64 @@ router.route('/zipcode')
     }
   });
 
-router.route('/mdcensusdatataxcreditcompany')
+  router.route('/mdCensusDataTaxCreditCompany')
   .get(async (req, res) => {
-    try {
-      const census = await db.mdCensusDataTaxCreditCompany.findall();
-      const reply = census.length > 0 ? {data: census } : {message: 'no results found' };
-      res.json(reply);
-    } catch (err) {
-      console.error(err);
-      res.error({error: error});
+    try{
+      console.log(req.body);
+      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+        replacements: { },
+        type: sequelize.QueryTypes.SELECT
+      });
+      res.json({data: result});
+    }
+    catch (err) {
+      console.log(err);
+      res.send({message: 'Something went wrong on the SQL request'})
     }
   })
-  .put((req, res) => {
-    try {
-      res.json({message: 'PUT police stations in Maryland'});
-    } catch (err) {
-      console.log(error);
-      res.json({error: 'You are wrong'});
+  
+  .put(async (req, res) => {
+    try{
+      console.log(req.body);
+      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+        replacements: { },
+        type: sequelize.QueryTypes.SELECT
+      });
+      res.json({data: result});
+    }
+    catch (err) {
+      console.log(err);
+      res.send({message: 'Something went wrong on the SQL request'})
     }
   })
-  .post((req, res) => {
-    try {
-      res.json({message: 'POST police stations in Maryland'});
-    } catch (err) {
-      console.log(error);
-      res.json({error: 'You are wrong'});
+  
+  .post(async (req, res) => {
+    try{
+      console.log(req.body);
+      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+        replacements: { },
+        type: sequelize.QueryTypes.SELECT
+      });
+      res.json({data: result});
+    }
+    catch (err) {
+      console.log(err);
+      res.send({message: 'Something went wrong on the SQL request'})
     }
   })
-  .delete((req, res) => {
-    try {
-      res.json({message: 'DELETE police stations in Maryland'});
-    } catch (err) {
-      console.log(error);
-      res.json({error: 'You are wrong'});
+  
+  .delete(async (req, res) => {
+    try{
+      console.log(req.body);
+      const result = await db.sequelizeDB.query(mdCensusDataTaxCreditCompany, {
+        replacements: { },
+        type: sequelize.QueryTypes.SELECT
+      });
+      res.json({data: result});
+    }
+    catch (err) {
+      console.log(err);
+      res.send({message: 'Something went wrong on the SQL request'})
     }
   });
 
